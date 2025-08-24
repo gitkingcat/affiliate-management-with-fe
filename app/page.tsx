@@ -1,3 +1,7 @@
+
+"use client";
+
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -31,6 +35,12 @@ import {
 } from "lucide-react"
 
 export default function LandingPage() {
+
+  const router = useRouter()
+
+  const handleStartFreeTrial = () => {
+    router.push("/dashboard")
+  }
   return (
       <div className="min-h-screen bg-background">
         {/* Header/Navigation */}
@@ -68,7 +78,12 @@ export default function LandingPage() {
                 <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
                   Sign In
                 </Button>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Start Free Trial</Button>
+                <Button
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={handleStartFreeTrial}
+                >
+                  Start Free Trial
+                </Button>
               </div>
             </div>
           </div>
